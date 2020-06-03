@@ -4,9 +4,9 @@ import (
     "testing"
     "github.com/stretchr/testify/assert"
 
-    "github.com/HoMuChen/go-park/domain"
-    source  "github.com/HoMuChen/go-park/infra/companySource/file"
-    service "github.com/HoMuChen/go-park/uc/company"
+    "github.com/HoMuChen/go-twstock/domain"
+    source  "github.com/HoMuChen/go-twstock/infra/companySource/file"
+    service "github.com/HoMuChen/go-twstock/uc/company"
 )
 
 func TestGetByID(t *testing.T) {

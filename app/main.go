@@ -3,13 +3,13 @@ package main
 import (
     "fmt"
 
-    _companyService "github.com/HoMuChen/go-park/uc/company"
-    _companyRepo    "github.com/HoMuChen/go-park/infra/companyRepository/memory"
-    _companySource  "github.com/HoMuChen/go-park/infra/companySource/file"
+    _companyService "github.com/HoMuChen/go-twstock/uc/company"
+    _companyRepo    "github.com/HoMuChen/go-twstock/infra/companyRepository/memory"
+    _companySource  "github.com/HoMuChen/go-twstock/infra/companySource/file"
 
-    _priceService   "github.com/HoMuChen/go-park/uc/price"
-    _priceRepo      "github.com/HoMuChen/go-park/infra/priceRepository/memory"
-    _priceSouce     "github.com/HoMuChen/go-park/infra/priceHttpSource"
+    _priceService   "github.com/HoMuChen/go-twstock/uc/price"
+    _priceRepo      "github.com/HoMuChen/go-twstock/infra/priceRepository/memory"
+    _priceSouce     "github.com/HoMuChen/go-twstock/infra/priceHttpSource"
 )
 
 func main() {

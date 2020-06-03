@@ -4,8 +4,8 @@ import (
     "testing"
     "github.com/stretchr/testify/assert"
 
-    "github.com/HoMuChen/go-park/domain"
-    memory "github.com/HoMuChen/go-park/infra/companyRepository/memory"
+    "github.com/HoMuChen/go-twstock/domain"
+    memory "github.com/HoMuChen/go-twstock/infra/companyRepository/memory"
 )
 
 func TestGetByNotExistID(t *testing.T) {

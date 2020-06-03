@@ -4,8 +4,8 @@ import (
     "testing"
     "github.com/stretchr/testify/assert"
 
-    "github.com/HoMuChen/go-park/domain"
-    redisRepo "github.com/HoMuChen/go-park/infra/companyRepository/redis"
+    "github.com/HoMuChen/go-twstock/domain"
+    redisRepo "github.com/HoMuChen/go-twstock/infra/companyRepository/redis"
 )
 
 func TestGetByNotExistID(t *testing.T) {

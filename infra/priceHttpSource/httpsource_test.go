@@ -4,8 +4,8 @@ import (
     "testing"
     "github.com/stretchr/testify/assert"
 
-    "github.com/HoMuChen/go-park/domain"
-    httpsource "github.com/HoMuChen/go-park/infra/priceHttpSource"
+    "github.com/HoMuChen/go-twstock/domain"
+    httpsource "github.com/HoMuChen/go-twstock/infra/priceHttpSource"
 )
 
 func TestFetchRealtime(t *testing.T) {

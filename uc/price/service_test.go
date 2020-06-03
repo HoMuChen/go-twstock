@@ -4,11 +4,11 @@ import (
     "testing"
     "github.com/stretchr/testify/assert"
 
-    "github.com/HoMuChen/go-park/domain"
-    comRepo    "github.com/HoMuChen/go-park/infra/companyRepository/memory"
-    memory     "github.com/HoMuChen/go-park/infra/priceRepository/memory"
-    httpsource "github.com/HoMuChen/go-park/infra/priceHttpSource"
-    service    "github.com/HoMuChen/go-park/uc/price"
+    "github.com/HoMuChen/go-twstock/domain"
+    comRepo    "github.com/HoMuChen/go-twstock/infra/companyRepository/memory"
+    memory     "github.com/HoMuChen/go-twstock/infra/priceRepository/memory"
+    httpsource "github.com/HoMuChen/go-twstock/infra/priceHttpSource"
+    service    "github.com/HoMuChen/go-twstock/uc/price"
 )
 
 func TestFetchRealtime(t *testing.T) {

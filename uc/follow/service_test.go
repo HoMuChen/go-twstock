@@ -4,9 +4,9 @@ import (
     "testing"
     "github.com/stretchr/testify/assert"
 
-    "github.com/HoMuChen/go-park/domain"
-    repo    "github.com/HoMuChen/go-park/infra/companyRepository/memory"
-    service "github.com/HoMuChen/go-park/uc/follow"
+    "github.com/HoMuChen/go-twstock/domain"
+    repo    "github.com/HoMuChen/go-twstock/infra/companyRepository/memory"
+    service "github.com/HoMuChen/go-twstock/uc/follow"
 )
 
 func TestFollow(t *testing.T) {

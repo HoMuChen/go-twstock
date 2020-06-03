@@ -8,7 +8,7 @@ import (
     "encoding/json"
     "strconv"
 
-    "github.com/HoMuChen/go-park/domain"
+    "github.com/HoMuChen/go-twstock/domain"
 )
 
 type service struct {

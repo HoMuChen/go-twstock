@@ -1,4 +1,4 @@
-module github.com/HoMuChen/go-park
+module github.com/HoMuChen/go-twstock
 
 go 1.14
 

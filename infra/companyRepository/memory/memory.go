@@ -1,7 +1,7 @@
 package companyRepository
 
 import (
-    "github.com/HoMuChen/go-park/domain"
+    "github.com/HoMuChen/go-twstock/domain"
 )
 
 type comanyRepository struct {

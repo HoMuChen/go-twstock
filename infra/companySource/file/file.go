@@ -6,7 +6,7 @@ import (
     "log"
     "encoding/csv"
 
-    "github.com/HoMuChen/go-park/domain"
+    "github.com/HoMuChen/go-twstock/domain"
 )
 
 type comanySource struct {
@@ -22,6 +22,7 @@ func New(dataPath string) domain.CompanySource {
     if err != nil {
         log.Fatal(err)
     }
+    defer file.Close()
 
     r := csv.NewReader(file)
     for {
