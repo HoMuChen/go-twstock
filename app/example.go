@@ -10,25 +10,29 @@ import (
     _priceService   "github.com/HoMuChen/go-twstock/uc/price"
     _priceRepo      "github.com/HoMuChen/go-twstock/infra/priceRepository/memory"
     _priceSouce     "github.com/HoMuChen/go-twstock/infra/priceHttpSource"
+
+    _followService   "github.com/HoMuChen/go-twstock/uc/follow"
 )
 
 func main() {
-    comapnyRepo := _companyRepo.New()
+    companyRepo := _companyRepo.New()
     companySource := _companySource.New("./data/companies.csv")
-    companyService := _companyService.New(comapnyRepo, companySource)
+    companyService := _companyService.New(companySource)
+
+    followService := _followService.New(companyRepo)
 
     priceRepo := _priceRepo.New()
     priceHttpSource := _priceSouce.New()
-    priceService := _priceService.New(priceHttpSource, priceRepo, comapnyRepo)
+    priceService := _priceService.New(priceHttpSource, priceRepo, companyRepo)
 
     com, _ := companyService.GetById("2330")
-    companyService.Follow(com)
+    followService.Follow(com)
     com, _ = companyService.GetById("2454")
-    companyService.Follow(com)
+    followService.Follow(com)
     com, _ = companyService.GetById("3105")
-    companyService.Follow(com)
+    followService.Follow(com)
     com, _ = companyService.GetById("2884")
-    companyService.Follow(com)
+    followService.Follow(com)
 
     prices, err := priceService.FetchRealtimeAll(0, 5)
     if err != nil {
