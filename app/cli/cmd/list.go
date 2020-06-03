@@ -28,7 +28,7 @@ var listCmd = &cobra.Command{
     }
 
     if args[0] == "follows" {
-       companies, err := companyService.ListFollow(from, to)
+       companies, err := followService.List(from, to)
        if err != nil {
         log.Fatal(err)
       }
@@ -43,4 +43,5 @@ var listCmd = &cobra.Command{
 func init() {
   listCmd.Flags().IntVarP(&from, "from", "f", 0, "List from")
   listCmd.Flags().IntVarP(&to, "to", "t", 10, "List to")
+  rootCmd.AddCommand(listCmd)
 }

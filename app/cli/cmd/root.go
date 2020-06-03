@@ -10,9 +10,17 @@ import (
     _companyService "github.com/HoMuChen/go-park/uc/company"
     _companyRepo    "github.com/HoMuChen/go-park/infra/companyRepository/redis"
     _companySource  "github.com/HoMuChen/go-park/infra/companySource/file"
+
+    _priceService   "github.com/HoMuChen/go-park/uc/price"
+    _priceRepo      "github.com/HoMuChen/go-park/infra/priceRepository/memory"
+    _priceSouce     "github.com/HoMuChen/go-park/infra/priceHttpSource"
+
+    _followService "github.com/HoMuChen/go-park/uc/follow"
 )
 
-var companyService domain.CompanyService
+var companyService  domain.CompanyService
+var followService   domain.FollowService
+var priceService    domain.PriceService
 
 var rootCmd = &cobra.Command{
   Use:   "go-park",
@@ -24,13 +32,16 @@ var rootCmd = &cobra.Command{
 }
 
 func init() {
-  comapnyRepo := _companyRepo.New()
   companySource := _companySource.New("./data/companies.csv")
-  companyService = _companyService.New(comapnyRepo, companySource)
+  companyService = _companyService.New(companySource)
 
-  rootCmd.AddCommand(listCmd)
-  rootCmd.AddCommand(getCmd)
-  rootCmd.AddCommand(priceCmd)
+  companyRepo := _companyRepo.New()
+  followService = _followService.New(companyRepo)
+
+  priceRepo := _priceRepo.New()
+  priceHttpSource := _priceSouce.New()
+  priceService = _priceService.New(priceHttpSource, priceRepo, companyRepo)
+
 }
 
 func Execute() {

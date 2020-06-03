@@ -5,13 +5,11 @@ import (
 )
 
 type companyService struct {
-    companyRepo     domain.CompanyRepository
     companySource   domain.CompanySource
 }
 
-func New(c domain.CompanyRepository, s domain.CompanySource) domain.CompanyService {
+func New(s domain.CompanySource) domain.CompanyService {
     return &companyService{
-       companyRepo:    c,
        companySource:  s,
     }
 }
@@ -22,12 +20,4 @@ func (service *companyService) GetById(id string) (domain.Company, error) {
 
 func (service *companyService) List(from int, size int) ([]domain.Company, error) {
     return service.companySource.List(from, size)
-}
-
-func (service *companyService) Follow(company domain.Company) error {
-    return service.companyRepo.Add(company)
-}
-
-func (service *companyService) ListFollow(from int, size int) ([]domain.Company, error) {
-    return service.companyRepo.List(from, size)
 }

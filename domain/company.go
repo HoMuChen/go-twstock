@@ -9,8 +9,6 @@ type Company struct {
 type CompanyService interface {
     GetById(id string)              (Company, error)
     List(from int, size int)        ([]Company, error)
-    Follow(company Company)         error
-    ListFollow(from int, size int)  ([]Company, error)
 }
 
 type CompanyRepository interface {
