@@ -8,7 +8,7 @@ import (
 )
 
 var from int
-var to int
+var size int
 
 var listCmd = &cobra.Command{
   Use:   "list",
@@ -17,7 +17,7 @@ var listCmd = &cobra.Command{
   Args: cobra.MinimumNArgs(1),
   Run: func(cmd *cobra.Command, args []string) {
     if args[0] == "companies" {
-       companies, err := companyService.List(from, to)
+       companies, err := companyService.List(from, size)
        if err != nil {
         log.Fatal(err)
       }
@@ -28,7 +28,7 @@ var listCmd = &cobra.Command{
     }
 
     if args[0] == "follows" {
-       companies, err := followService.List(from, to)
+       companies, err := followService.List(from, size)
        if err != nil {
         log.Fatal(err)
       }
@@ -42,6 +42,6 @@ var listCmd = &cobra.Command{
 
 func init() {
   listCmd.Flags().IntVarP(&from, "from", "f", 0, "List from")
-  listCmd.Flags().IntVarP(&to, "to", "t", 10, "List to")
+  listCmd.Flags().IntVarP(&size, "size", "s", 10, "List size")
   rootCmd.AddCommand(listCmd)
 }

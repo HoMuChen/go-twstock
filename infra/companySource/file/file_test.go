@@ -9,7 +9,7 @@ import (
 )
 
 func TestGetByID(t *testing.T) {
-    companySource := _companySource.New("../../../data/companies.csv")
+    companySource := _companySource.New()
 
     com, err := companySource.GetById("2330")
 
@@ -18,7 +18,7 @@ func TestGetByID(t *testing.T) {
 }
 
 func TestGetByNonExistID(t *testing.T) {
-    companySource := _companySource.New("../../../data/companies.csv")
+    companySource := _companySource.New()
 
     _, err := companySource.GetById("2330000")
 
@@ -26,7 +26,7 @@ func TestGetByNonExistID(t *testing.T) {
 }
 
 func TestList(t *testing.T) {
-    companySource := _companySource.New("../../../data/companies.csv")
+    companySource := _companySource.New()
 
     companies, err := companySource.List(0, 10)
 

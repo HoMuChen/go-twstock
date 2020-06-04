@@ -32,14 +32,13 @@ var rootCmd = &cobra.Command{
 }
 
 func init() {
-  companySource := _companySource.New("./data/companies.csv")
-  companyService = _companyService.New(companySource)
-
-  companyRepo := _companyRepo.New("./data/follows.csv")
-  followService = _followService.New(companyRepo)
-
+  companyRepo := _companyRepo.New("/tmp/follows.csv")
+  companySource := _companySource.New()
   priceRepo := _priceRepo.New()
   priceHttpSource := _priceSouce.New()
+
+  companyService = _companyService.New(companySource)
+  followService = _followService.New(companyRepo)
   priceService = _priceService.New(priceHttpSource, priceRepo, companyRepo)
 
 }

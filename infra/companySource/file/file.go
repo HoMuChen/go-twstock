@@ -1,12 +1,10 @@
 package companySource
 
 import (
-    "os"
-    "io"
-    "log"
-    "encoding/csv"
+    "strings"
 
     "github.com/HoMuChen/go-twstock/domain"
+    "github.com/HoMuChen/go-twstock/data"
 )
 
 type comanySource struct {
@@ -14,25 +12,12 @@ type comanySource struct {
     keys        []string
 }
 
-func New(dataPath string) domain.CompanySource {
+func New() domain.CompanySource {
     companies := make(map[string]domain.Company)
     keys := make([]string, 0)
 
-    file, err := os.Open(dataPath)
-    if err != nil {
-        log.Fatal(err)
-    }
-    defer file.Close()
-
-    r := csv.NewReader(file)
-    for {
-        record, err := r.Read()
-        if err == io.EOF {
-            break
-        }
-        if err != nil {
-            log.Fatal(err)
-        }
+    for _, company := range data.Companies {
+        record := strings.Split(company, ",")
 
         keys = append(keys, record[0])
         companies[record[0]] = domain.Company{record[0], record[1], record[2]}

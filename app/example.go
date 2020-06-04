@@ -16,7 +16,7 @@ import (
 
 func main() {
     companyRepo := _companyRepo.New()
-    companySource := _companySource.New("./data/companies.csv")
+    companySource := _companySource.New()
     companyService := _companyService.New(companySource)
 
     followService := _followService.New(companyRepo)
