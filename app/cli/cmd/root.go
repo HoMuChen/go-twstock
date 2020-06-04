@@ -23,28 +23,27 @@ var followService   domain.FollowService
 var priceService    domain.PriceService
 
 var rootCmd = &cobra.Command{
-  Use:   "go-twstock",
-  Short: "taiwan stock realtime price crawler",
-  Long:  `taiwan stock realtime price crawler`,
-  Run: func(cmd *cobra.Command, args []string) {
-     fmt.Println("Hello from go-twstock")
-  },
+    Use:   "go-twstock",
+    Short: "taiwan stock realtime price crawler",
+    Long:  `taiwan stock realtime price crawler`,
+    Run: func(cmd *cobra.Command, args []string) {
+        fmt.Println("Hello from go-twstock")
+    },
 }
 
 func init() {
-  companyRepo := _companyRepo.New("/tmp/follows.csv")
-  companySource := _companySource.New()
-  priceRepo := _priceRepo.New()
-  priceHttpSource := _priceSouce.New()
+    companyRepo := _companyRepo.New("/tmp/follows.csv")
+    companySource := _companySource.New()
+    priceRepo := _priceRepo.New()
+    priceHttpSource := _priceSouce.New()
 
-  companyService = _companyService.New(companySource)
-  followService = _followService.New(companyRepo)
-  priceService = _priceService.New(priceHttpSource, priceRepo, companyRepo)
-
+    companyService = _companyService.New(companySource)
+    followService = _followService.New(companyRepo)
+    priceService = _priceService.New(priceHttpSource, priceRepo, companyRepo)
 }
 
 func Execute() {
-  if err := rootCmd.Execute(); err != nil {
-    log.Fatal(err)
-  }
+     if err := rootCmd.Execute(); err != nil {
+        log.Fatal(err)
+    }
 }
