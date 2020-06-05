@@ -18,6 +18,10 @@ func (service *followService) Follow(company domain.Company) error {
     return service.companyRepo.Add(company)
 }
 
+func (service *followService) Unfollow(company domain.Company) error {
+    return service.companyRepo.Remove(company)
+}
+
 func (service *followService) List(from int, size int) ([]domain.Company, error) {
     return service.companyRepo.List(from, size)
 }

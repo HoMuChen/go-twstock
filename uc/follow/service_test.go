@@ -17,6 +17,16 @@ func TestFollow(t *testing.T) {
     assert.NoError(t, err)
 }
 
+func TestUnfollow(t *testing.T) {
+    memoryRepo := repo.New()
+    followService := service.New(memoryRepo)
+
+    err := followService.Follow(domain.Company{"1", "tse_1.tw", "台1"})
+    err = followService.Unfollow(domain.Company{"1", "tse_1.tw", "台1"})
+
+    assert.NoError(t, err)
+}
+
 func TestList(t *testing.T) {
     memoryRepo := repo.New()
     followService := service.New(memoryRepo)

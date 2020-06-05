@@ -7,10 +7,10 @@ import (
     "github.com/spf13/cobra"
 )
 
-var followCmd = &cobra.Command{
-    Use: "follow",
-    Short: "follow {id}",
-    Long: `Follow compainy with specific ID`,
+var unfollowCmd = &cobra.Command{
+    Use: "unfollow",
+    Short: "unfollow {id}",
+    Long: `Unfollow compainy with specific ID`,
     Args: cobra.MinimumNArgs(1),
     Run: func(cmd *cobra.Command, args []string) {
         id := args[0]
@@ -20,7 +20,7 @@ var followCmd = &cobra.Command{
             log.Fatal(err)
         }
 
-        err = followService.Follow(company)
+        err = followService.Unfollow(company)
 
         if err != nil {
             log.Fatal(err)
@@ -31,5 +31,5 @@ var followCmd = &cobra.Command{
 }
 
 func init() {
-    rootCmd.AddCommand(followCmd)
+    rootCmd.AddCommand(unfollowCmd)
 }
